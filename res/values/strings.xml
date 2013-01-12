@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Pepitmobil</string>
+    <string name="title_activity_pepit_mobil">PepitMobilActivity</string>
+    
+    <!-- String for layout activity_pepit_mobil -->
+    <string name="btn_exercice">Exercice</string>
+    <string name="btn_quitter">Quitter</string>
+	<string name="txt_copyright">Conçue et réalisée l’équipe PepitMobil &#169; 2012 &#8211; 2013</string>
+	
+	<!-- String for layout activity_pepit-mobil -->
+    
+</resources>

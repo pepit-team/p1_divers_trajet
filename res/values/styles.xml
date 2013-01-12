@@ -1,0 +1,10 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+	
+    <style name="styleBtn">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/custom_btn</item>
+        <item name="android:width">200dp</item>
+    </style>
+</resources>
