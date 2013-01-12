@@ -44,7 +44,7 @@ public class Arrow {
 
     private void draw(Canvas canvas, int x, int y, int length) {
 	Paint paint = new Paint();
-	paint.setColor(Constants.COLOR_ARROW);
+	paint.setColor(COLOR);
 	paint.setStyle(Style.FILL);
 
 	Point pt1 = new Point(x, y);
@@ -119,4 +119,6 @@ public class Arrow {
 
     private Point origin;
     private Direction direction;
+
+    public static final int COLOR = Color.rgb(11, 137, 32);
 }

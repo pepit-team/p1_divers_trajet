@@ -23,20 +23,7 @@
 
 package org.pepit.p1.divers.trajet;
 
-import android.graphics.Color;
-
 public class Constants {
-    /* for grid */
     public static final int MARGIN_X = 5;
     public static final int MARGIN_Y = 5;
-
-    public static final int COLOR_ARROW = Color.rgb(11, 137, 32);
-    
-    /* for path */
-//    public static final int MIN_SIZE = 20;
-//    public static final int MAX_SIZE = 30;
-
-    /* for tab */
-//    public static final int TAB_NB_ROWS = 2;
-//    public static final int TAB_NB_COLS = MAX_SIZE + 1;
 }
