@@ -31,7 +31,6 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 public class TabView extends View {
 
@@ -50,11 +49,8 @@ public class TabView extends View {
 	path = null;
     }
 
-    private void check() {
-	if (grid.getModel().check(path)) {
-	    Toast.makeText(getContext(), "Bravo ! Le parcours est correct",
-		    Toast.LENGTH_LONG).show();
-	}
+    public boolean check() {
+	return grid.getModel().check(path);
     }
 
     private void computeDimensions() {
@@ -173,7 +169,6 @@ public class TabView extends View {
 			&& touch_y > pts_y[0] && touch_y < pts_y[1]) {
 		    changeStateCase(i - 1);
 		    invalidate();
-		    check();
 		}
 	    }
 	}

@@ -153,22 +153,19 @@ public class Exercise implements org.pepit.plugin.Interface {
     }
 
     public String getNextQuestionButtonText() {
-	return "";
+	return "Valider";
     }
 
     public boolean currentAnswerIsRight() {
-	// TODO Auto-generated method stub
-	return false;
+	return view.check();
     }
 
     public void showAnswerIsRight() {
-	// TODO Auto-generated method stub
-
+	view.displayCorrectMessage();
     }
 
     public void showAnswerIsWrong() {
-	// TODO Auto-generated method stub
-
+	view.displayErrorMessage();
     }
 
     public int getScore() {

@@ -25,11 +25,13 @@ package org.pepit.p1.divers.trajet;
 
 import android.content.Context;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class ExerciseView {
 
     public ExerciseView(Context ctx, int colNumber, int rowNumber,
 	    int minPathSize, int maxPathSize) {
+	context = ctx;
 	// create widgets
 	grid = new GridView(ctx);
 	grid.init(colNumber, rowNumber, minPathSize, maxPathSize);
@@ -59,10 +61,23 @@ public class ExerciseView {
 	rootLayout.setOrientation(LinearLayout.VERTICAL);
     }
 
+    public boolean check() {
+	return tab.check();
+    }
+    
+    public void displayCorrectMessage() {
+	Toast.makeText(context, "Bravo !", Toast.LENGTH_LONG).show();
+    }
+
+    public void displayErrorMessage() {
+	Toast.makeText(context, "Erreur", Toast.LENGTH_LONG).show();
+    }
+
     public LinearLayout getLayout() {
 	return rootLayout;
     }
 
+    private Context context;
     private LinearLayout rootLayout;
     private GridView grid;
     private TabView tab;
