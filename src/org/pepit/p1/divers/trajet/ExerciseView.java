@@ -1,5 +1,5 @@
 /**
- * @file org/pepit/p1/divers/trajet/ExerciseActivity.java
+ * @file org/pepit/p1/divers/trajet/ExerciseView.java
  * 
  * PepitModel: an educational software
  * This file is a part of the PepitModel environment
@@ -23,31 +23,21 @@
 
 package org.pepit.p1.divers.trajet;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.widget.LinearLayout;
 
-public class ExerciseActivity extends Activity {
+public class ExerciseView {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	
-	Intent intent = getIntent();
-	int colNumber = Integer.parseInt(intent.getStringExtra("colNumber"));
-	int rowNumber = Integer.parseInt(intent.getStringExtra("rowNumber"));
-	int minPathSize = Integer.parseInt(intent.getStringExtra("minPathSize"));
-	int maxPathSize = Integer.parseInt(intent.getStringExtra("maxPathSize"));
-	
+    public ExerciseView(Context ctx, int colNumber, int rowNumber,
+	    int minPathSize, int maxPathSize) {
 	// create widgets
-	grid = new GridView(this);
+	grid = new GridView(ctx);
 	grid.init(colNumber, rowNumber, minPathSize, maxPathSize);
-	tab = new TabView(this);
+	tab = new TabView(ctx);
 	tab.init(grid, minPathSize, maxPathSize);
-	
+
 	// add widget to grid layout
-	LinearLayout gridLayout = new LinearLayout(this);
+	LinearLayout gridLayout = new LinearLayout(ctx);
 	LinearLayout.LayoutParams gridLayoutParams = new LinearLayout.LayoutParams(
 		LinearLayout.LayoutParams.MATCH_PARENT,
 		LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -55,7 +45,7 @@ public class ExerciseActivity extends Activity {
 	gridLayout.addView(grid);
 
 	// add widget to tab layout
-	LinearLayout tabLayout = new LinearLayout(this);
+	LinearLayout tabLayout = new LinearLayout(ctx);
 	LinearLayout.LayoutParams tabLayoutParams = new LinearLayout.LayoutParams(
 		LinearLayout.LayoutParams.MATCH_PARENT,
 		LinearLayout.LayoutParams.WRAP_CONTENT, 4);
@@ -63,19 +53,17 @@ public class ExerciseActivity extends Activity {
 	tabLayout.addView(tab);
 
 	// rootLayout
-	LinearLayout rootLayout = new LinearLayout(this);
-	LinearLayout.LayoutParams rootLayoutParams = new LinearLayout.LayoutParams(
-		LinearLayout.LayoutParams.MATCH_PARENT,
-		LinearLayout.LayoutParams.MATCH_PARENT);
-
+	rootLayout = new LinearLayout(ctx);
 	rootLayout.addView(tabLayout, tabLayoutParams);
 	rootLayout.addView(gridLayout, gridLayoutParams);
 	rootLayout.setOrientation(LinearLayout.VERTICAL);
-
-	// and set your layout like main content
-	setContentView(rootLayout, rootLayoutParams);
     }
 
+    public LinearLayout getLayout() {
+	return rootLayout;
+    }
+
+    private LinearLayout rootLayout;
     private GridView grid;
     private TabView tab;
 }

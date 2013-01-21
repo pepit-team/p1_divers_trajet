@@ -37,14 +37,17 @@ public class TabView extends View {
 
     public TabView(Context context) {
 	super(context);
+	path = null;
     }
 
     public TabView(Context context, AttributeSet attrs, int defStyle) {
 	super(context, attrs, defStyle);
+	path = null;
     }
 
     public TabView(Context context, AttributeSet attrs) {
 	super(context, attrs);
+	path = null;
     }
 
     private void check() {
@@ -146,8 +149,6 @@ public class TabView extends View {
 	margin_x = 0;
 	margin_y = 0;
 
-	path = null;
-
 	flag_init = false;
     }
 
@@ -163,15 +164,17 @@ public class TabView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-	int touch_x = (int) event.getX();
-	int touch_y = (int) event.getY();
+	if (grid != null) {
+	    int touch_x = (int) event.getX();
+	    int touch_y = (int) event.getY();
 
-	for (int i = 1; i < pts_x.length; i++) {
-	    if (touch_x > pts_x[i - 1] && touch_x < pts_x[i]
-		    && touch_y > pts_y[0] && touch_y < pts_y[1]) {
-		changeStateCase(i - 1);
-		invalidate();
-		check();
+	    for (int i = 1; i < pts_x.length; i++) {
+		if (touch_x > pts_x[i - 1] && touch_x < pts_x[i]
+			&& touch_y > pts_y[0] && touch_y < pts_y[1]) {
+		    changeStateCase(i - 1);
+		    invalidate();
+		    check();
+		}
 	    }
 	}
 	return super.onTouchEvent(event);
