@@ -72,22 +72,38 @@ public class Exercise implements org.pepit.plugin.Interface {
 	TextView tv1 = new TextView(ctx);
 	tv1.setGravity(Gravity.CENTER_HORIZONTAL);
 	tv1.setTextColor(Color.BLACK);
-	tv1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
-	tv1.setText("RECONSTITUER UN TRAJET");
+	tv1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
+	tv1.setText("TRAJET");
 	lil.addView(tv1);
 
 	TextView tv2 = new TextView(ctx);
 	tv2.setGravity(Gravity.CENTER_HORIZONTAL);
 	tv2.setTextColor(Color.BLACK);
 	tv2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-	tv2.setText("A l'aide ...");
+	tv2.setText("Décrire un déplacement");
 	lil.addView(tv2);
 
-	return (lil);
+	TextView tv3 = new TextView(ctx);
+	tv3.setGravity(Gravity.CENTER_HORIZONTAL);
+	tv3.setTextColor(Color.BLACK);
+	tv3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+	tv3.setText("Adaptation de la fiche \"51\" de \"Basile et les maths\" (1A).");
+	lil.addView(tv3);
+
+	TextView tv4 = new TextView(ctx);
+	tv4.setGravity(Gravity.CENTER_HORIZONTAL);
+	tv4.setTextColor(Color.BLACK);
+	tv4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+	tv4.setText("Editions Wolters Plantyn.");
+	lil.addView(tv4);
+
+	return lil;
     }
 
     public String[] getExerciseList() {
-	String[] l = { "Grilles de 10 x 20" };
+	String[] l = { "Grilles de 10 x 5", "Grilles de 15 x 10",
+		"Grilles de 20 x 15", "Grilles de 25 x 20",
+		"Grilles de 30 x 25" };
 
 	return l;
     }
@@ -108,7 +124,7 @@ public class Exercise implements org.pepit.plugin.Interface {
 	tv1.setGravity(Gravity.CENTER_HORIZONTAL);
 	tv1.setTextColor(Color.BLACK);
 	tv1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
-	tv1.setText("ADDITIONS CLASSIQUES");
+	tv1.setText("Comment jouer ?");
 	lil.addView(tv1);
 
 	TextView tv2 = new TextView(ctx);
@@ -122,9 +138,16 @@ public class Exercise implements org.pepit.plugin.Interface {
 	TextView tv3 = new TextView(ctx);
 	tv3.setGravity(Gravity.CENTER_HORIZONTAL);
 	tv3.setTextColor(Color.BLACK);
-	tv3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-	tv3.setText("Complétez l'opération avec un des nombres");
+	tv3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+	tv3.setText("Adaptation de la fiche \"51\" de \"Basile et les maths\" (1A).");
 	lil.addView(tv3);
+
+	TextView tv4 = new TextView(ctx);
+	tv4.setGravity(Gravity.CENTER_HORIZONTAL);
+	tv4.setTextColor(Color.BLACK);
+	tv4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+	tv4.setText("Editions Wolters Plantyn.");
+	lil.addView(tv4);
 
 	return lil;
     }
@@ -138,7 +161,23 @@ public class Exercise implements org.pepit.plugin.Interface {
 
     public LinearLayout getQuestionLayout(Context ctx, File rootResource,
 	    int selectedExercise, int selectedModule, int numQuestion) {
-	view = new ExerciseView(ctx, 20, 10, 10, 15);
+	switch (selectedExercise) {
+	case 0:
+	    view = new ExerciseView(ctx, 10, 5, 10, 10);
+	    break;
+	case 1:
+	    view = new ExerciseView(ctx, 15, 10, 15, 15);
+	    break;
+	case 2:
+	    view = new ExerciseView(ctx, 20, 15, 20, 20);
+	    break;
+	case 3:
+	    view = new ExerciseView(ctx, 25, 20, 25, 25);
+	    break;
+	case 4:
+	    view = new ExerciseView(ctx, 30, 25, 30, 30);
+	    break;
+	}
 	return view.getLayout();
     }
 
