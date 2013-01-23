@@ -28,6 +28,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -102,7 +103,8 @@ public class GridView extends View {
 	return model;
     }
 
-    public void init(int colNumber, int rowNumber, int minPathSize, int maxPathSize) {
+    public void init(int colNumber, int rowNumber, int minPathSize,
+	    int maxPathSize) {
 	model = new GridModel(colNumber, rowNumber, minPathSize, maxPathSize);
 	model.build();
     }
@@ -115,7 +117,14 @@ public class GridView extends View {
 	    computeDimensions();
 
 	    Paint paint = new Paint();
+
+	    paint.setColor(Color.WHITE);
+	    paint.setStyle(Style.FILL_AND_STROKE);
+	    canvas.drawRect(margin_x, margin_y, width + margin_x, height
+		    + margin_y, paint);
+
 	    paint.setColor(Color.DKGRAY);
+	    paint.setStyle(Style.STROKE);
 	    paint.setStrokeWidth(2);
 
 	    for (int i : pts_x) {

@@ -41,7 +41,7 @@ public class ExerciseView {
 	// add widget to grid layout
 	LinearLayout gridLayout = new LinearLayout(ctx);
 	LinearLayout.LayoutParams gridLayoutParams = new LinearLayout.LayoutParams(
-		LinearLayout.LayoutParams.MATCH_PARENT,
+		LinearLayout.LayoutParams.WRAP_CONTENT,
 		LinearLayout.LayoutParams.WRAP_CONTENT, 1);
 
 	gridLayout.addView(grid);
@@ -49,7 +49,7 @@ public class ExerciseView {
 	// add widget to tab layout
 	LinearLayout tabLayout = new LinearLayout(ctx);
 	LinearLayout.LayoutParams tabLayoutParams = new LinearLayout.LayoutParams(
-		LinearLayout.LayoutParams.MATCH_PARENT,
+		LinearLayout.LayoutParams.WRAP_CONTENT,
 		LinearLayout.LayoutParams.WRAP_CONTENT, 4);
 
 	tabLayout.addView(tab);

@@ -23,15 +23,18 @@
 
 package org.pepit.p1.divers.trajet;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+@SuppressLint("DrawAllocation")
 public class TabView extends View {
 
     public TabView(Context context) {
@@ -54,11 +57,11 @@ public class TabView extends View {
     }
 
     private void computeDimensions() {
-	margin_x = Constants.MARGIN_X;
-	margin_y = Constants.MARGIN_Y;
+	margin_x = 10;
+	margin_y = 10;
 
 	width = this.getWidth() - (margin_x * 2);
-	height = this.getHeight() - (margin_y * 2);
+	height = this.getHeight() - 10;
 
 	space_x = width / maxPathSize;
 	space_y = height;
@@ -73,12 +76,11 @@ public class TabView extends View {
 		pts_x[i] = 0 + margin_x + (space_x * i);
 	}
 
-	pts_y[0] = 0 + margin_y;
+	pts_y[0] = margin_y;
 	pts_y[1] = height + margin_y;
     }
 
-    private void drawTab(Canvas canvas) {
-	Paint paint = new Paint();
+    private void drawTab(Canvas canvas, Paint paint) {
 	paint.setColor(Color.DKGRAY);
 	paint.setStrokeWidth(2);
 
@@ -153,7 +155,15 @@ public class TabView extends View {
 	super.onDraw(canvas);
 	if (grid != null) {
 	    computeDimensions();
-	    drawTab(canvas);
+
+	    Paint paint = new Paint();
+
+	    paint.setColor(Color.WHITE);
+	    paint.setStyle(Style.FILL_AND_STROKE);
+	    canvas.drawRect(margin_x, margin_y, width + margin_x, height
+		    + margin_y, paint);
+
+	    drawTab(canvas, paint);
 	    drawPath(canvas);
 	}
     }

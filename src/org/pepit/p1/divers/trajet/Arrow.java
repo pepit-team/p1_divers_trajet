@@ -90,7 +90,7 @@ public class Arrow {
 	    pt2 = new Point(x, y + length);
 
 	    paint.setColor(Color.RED);
-	    paint.setTextSize(length / 2);
+	    paint.setTextSize(length);
 	    canvas.drawText("?", pt2.x, pt2.y, paint);
 	    break;
 	}

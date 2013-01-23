@@ -24,6 +24,6 @@
 package org.pepit.p1.divers.trajet;
 
 public class Constants {
-    public static final int MARGIN_X = 5;
-    public static final int MARGIN_Y = 5;
+    public static final int MARGIN_X = 20;
+    public static final int MARGIN_Y = 20;
 }
