@@ -23,7 +23,6 @@
 
 package org.pepit.p1.divers.trajet;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -57,8 +56,7 @@ public class Exercise implements org.pepit.plugin.Interface {
 	return info;
     }
 
-    public LinearLayout getExercisePresentationLayout(Context ctx,
-	    File rootResource) {
+    public LinearLayout getExercisePresentationLayout(Context ctx) {
 	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 		LinearLayout.LayoutParams.MATCH_PARENT,
 		LinearLayout.LayoutParams.MATCH_PARENT);
@@ -109,7 +107,7 @@ public class Exercise implements org.pepit.plugin.Interface {
     }
 
     public LinearLayout getExplanationPresentationLayout(Context ctx,
-	    File rootResource, int selectedExercise) {
+	    int selectedExercise) {
 	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 		LinearLayout.LayoutParams.MATCH_PARENT,
 		LinearLayout.LayoutParams.MATCH_PARENT);
@@ -159,8 +157,8 @@ public class Exercise implements org.pepit.plugin.Interface {
 	return l;
     }
 
-    public LinearLayout getQuestionLayout(Context ctx, File rootResource,
-	    int selectedExercise, int selectedModule, int numQuestion) {
+    public LinearLayout getQuestionLayout(Context ctx, int selectedExercise,
+	    int selectedModule, int numQuestion) {
 	switch (selectedExercise) {
 	case 0:
 	    view = new ExerciseView(ctx, 10, 5, 10, 10);
